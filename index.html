@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ahmed Abdulahi | Cybersecurity Engineering Portfolio</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <style>
+    :root {
+      --bg-color: #0b0f19;
+      --card-bg: #111827;
+      --border-color: #1f293d;
+      --accent-color: #38bdf8;
+      --accent-glow: rgba(56, 189, 248, 0.15);
+      --text-main: #f3f4f6;
+      --text-muted: #9ca3af;
+      --code-bg: #1a2234;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background-color: var(--bg-color);
+      color: var(--text-main);
+      font-family: 'Inter', sans-serif;
+      line-height: 1.6;
+      padding-bottom: 60px;
+    }
+
+    /* Navigation */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(11, 15, 25, 0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border-color);
+      padding: 16px 32px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .nav-brand {
+      font-family: 'JetBrains Mono', monospace;
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: var(--accent-color);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 24px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.95rem;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover {
+      color: var(--accent-color);
+    }
+
+    /* Layout Containers */
+    .container {
+      max-width: 1050px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    section {
+      padding: 64px 0;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .section-header {
+      margin-bottom: 32px;
+    }
+
+    .section-title {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--text-main);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .section-title::before {
+      content: '>';
+      font-family: 'JetBrains Mono', monospace;
+      color: var(--accent-color);
+    }
+
+    .section-subtitle {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      margin-top: 4px;
+    }
+
+    /* Hero / About Section */
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--accent-glow);
+      color: var(--accent-color);
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      font-family: 'JetBrains Mono', monospace;
+      margin-bottom: 20px;
+    }
+
+    .hero-title {
+      font-size: 2.8rem;
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: 16px;
+    }
+
+    .hero-bio {
+      color: var(--text-muted);
+      font-size: 1.1rem;
+      margin-bottom: 28px;
+    }
+
+    .profile-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      padding: 28px;
+      text-align: center;
+    }
+
+    .profile-avatar {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      background: var(--code-bg);
+      border: 2px solid var(--accent-color);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 16px auto;
+      font-size: 2.5rem;
+      color: var(--accent-color);
+    }
+
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      margin-top: 20px;
+    }
+
+    .social-btn {
+      width: 40px;
+      height: 40px;
+      border-radius: 8px;
+      background: var(--code-bg);
+      border: 1px solid var(--border-color);
+      color: var(--text-main);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+
+    .social-btn:hover {
+      border-color: var(--accent-color);
+      color: var(--accent-color);
+      transform: translateY(-2px);
+    }
+
+    /* Resume Section */
+    .resume-box {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      padding: 32px;
+    }
+
+    .resume-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 24px;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .btn {
+      background: var(--accent-color);
+      color: #000;
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-weight: 600;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: opacity 0.2s;
+    }
+
+    .btn:hover { opacity: 0.9; }
+
+    .resume-preview {
+      width: 100%;
+      height: 500px;
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      background: #000;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-muted);
+    }
+
+    /* Projects & Writing Grid */
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 24px;
+    }
+
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 24px;
+      transition: border-color 0.2s;
+    }
+
+    .card:hover {
+      border-color: rgba(56, 189, 248, 0.4);
+    }
+
+    .card-tag {
+      font-size: 0.75rem;
+      font-family: 'JetBrains Mono', monospace;
+      color: var(--accent-color);
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    .card-title {
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin-bottom: 12px;
+    }
+
+    .card-desc {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .hero-grid { grid-template-columns: 1fr; }
+      nav { flex-direction: column; gap: 12px; }
+      .hero-title { font-size: 2.2rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <nav>
+    <div class="nav-brand">
+      <i class="fa-solid fa-shield-halved"></i> AHMED.ABDULAHI
+    </div>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#resume">Resume</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#essays">Course Essays</a></li>
+    </ul>
+  </nav>
+
+  <div class="container">
+
+    <!-- SECTION 1: ABOUT ME (Required) -->
+    <section id="about">
+      <div class="hero-grid">
+        <div>
+          <div class="badge">
+            <i class="fa-solid fa-graduation-cap"></i> Class of 2030
+          </div>
+          <h1 class="hero-title">Hi, I'm Ahmed Abdulahi</h1>
+          <p class="hero-bio">
+            I am a <strong>Cybersecurity Engineering major</strong> dedicated to building secure systems, analyzing digital forensics, and understanding network defense. Welcome to my academic and professional portfolio!
+          </p>
+          <p style="color: var(--text-muted); margin-bottom: 20px;">
+            This site tracks my progression through coursework, hands-on engineering labs, ethics evaluations, and practical cybersecurity projects.
+          </p>
+        </div>
+
+        <div class="profile-card">
+          <div class="profile-avatar">
+            <i class="fa-solid fa-user-shield"></i>
+          </div>
+          <h3>Ahmed Abdulahi</h3>
+          <p style="color: var(--text-muted); font-size: 0.9rem;">Cybersecurity Engineering Student</p>
+          <div class="social-links">
+            <a href="mailto:example@iastate.edu" class="social-btn" title="Email"><i class="fa-solid fa-envelope"></i></a>
+            <a href="https://linkedin.com" target="_blank" class="social-btn" title="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="https://github.com" target="_blank" class="social-btn" title="GitHub"><i class="fa-brands fa-github"></i></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 2: RESUME (Required) -->
+    <section id="resume">
+      <div class="section-header">
+        <h2 class="section-title">Resume</h2>
+        <p class="section-subtitle">My current professional and academic resume</p>
+      </div>
+
+      <div class="resume-box">
+        <div class="resume-header">
+          <div>
+            <h3 style="font-size: 1.2rem; font-weight: 600;">Ahmed Abdulahi - Curriculum Vitae</h3>
+            <p style="color: var(--text-muted); font-size: 0.9rem;">Updated PDF Version</p>
+          </div>
+          <!-- Download/View Link -->
+          <a href="resume.pdf" target="_blank" class="btn">
+            <i class="fa-solid fa-file-pdf"></i> Download Resume (PDF)
+          </a>
+        </div>
+
+        <!-- Embedded Resume PDF Viewer (Replace 'resume.pdf' with your actual file path when hosting) -->
+        <div class="resume-preview">
+          <object data="resume.pdf" type="application/pdf" width="100%" height="100%">
+            <div style="text-align: center; padding: 40px;">
+              <i class="fa-solid fa-file-lines" style="font-size: 3rem; margin-bottom: 16px; color: var(--accent-color);"></i>
+              <p>Resume preview placeholder.</p>
+              <p style="font-size: 0.85rem; margin-top: 8px;">Upload your <code>resume.pdf</code> to the root directory to display it live here!</p>
+            </div>
+          </object>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 3: PROJECTS (Optional / Future Expansion) -->
+    <section id="projects">
+      <div class="section-header">
+        <h2 class="section-title">Engineering Projects</h2>
+        <p class="section-subtitle">Practical hands-on coursework and club involvement</p>
+      </div>
+
+      <div class="card-grid">
+        <!-- Example Project Card formatted around your prompt's questions -->
+        <div class="card">
+          <div class="card-tag">CPRE / EE 1860</div>
+          <h3 class="card-title">Introductory Engineering Design Project</h3>
+          <p class="card-desc">
+            <strong>Goal:</strong> Designed a baseline hardware/software solution introducing foundational logic and engineering principles.<br><br>
+            <strong>Skills &amp; Contributions:</strong> Collaborated on team problem-solving, basic circuit analysis, and technical documentation.<br><br>
+            <strong>Real-World Impact:</strong> Demonstrates how basic engineering logic scales to secure enterprise infrastructure.
+          </p>
+        </div>
+
+        <div class="card" style="opacity: 0.6;">
+          <div class="card-tag">Future Project Placeholder</div>
+          <h3 class="card-title">Network Security &amp; Firewalls</h3>
+          <p class="card-desc">
+            Placeholder for upcoming cybersecurity lab projects, packet analysis, or CTF (Capture The Flag) competition Write-ups.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 4: ETHICS & ESSAYS (Optional / Future Senior Portfolio Preparation) -->
+    <section id="essays" style="border-bottom: none;">
+      <div class="section-header">
+        <h2 class="section-title">Academic &amp; Ethics Essays</h2>
+        <p class="section-subtitle">Documentation for CPRE/EE 2320, CYBE 2340, and CPRE/EE 4940</p>
+      </div>
+
+      <div class="card-grid">
+        <div class="card">
+          <div class="card-tag">CYBE 2340 / CPRE 2320</div>
+          <h3 class="card-title">Engineering Ethics Case Study</h3>
+          <p class="card-desc">
+            Future essay location analyzing professional engineering responsibility, data privacy, and ethical disclosure in cybersecurity vulnerabilities.
+          </p>
+        </div>
+
+        <div class="card">
+          <div class="card-tag">CPRE / EE 4940</div>
+          <h3 class="card-title">Senior Portfolio Essays</h3>
+          <p class="card-desc">
+            Reserved area for future reflections on professional development, lifelong learning, and cumulative degree outcomes.
+          </p>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+</body>
+</html>
